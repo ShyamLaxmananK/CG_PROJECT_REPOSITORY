@@ -1,0 +1,31 @@
+<div class="page">
+
+  <div class="card">
+
+    <h2>Add New Turf</h2>
+
+    <input
+      type="text"
+      placeholder="Turf Name"
+      [(ngModel)]="name"
+    />
+
+    <input
+      type="text"
+      placeholder="Location"
+      [(ngModel)]="location"
+    />
+
+    <input
+      type="number"
+      placeholder="Price Per Hour"
+      [(ngModel)]="pricePerHour"
+    />
+
+    <button (click)="addTurf()">
+      Add Turf
+    </button>
+
+  </div>
+
+</div>

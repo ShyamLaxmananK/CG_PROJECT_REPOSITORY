@@ -1,0 +1,141 @@
+.page {
+  min-height: 100vh;
+  background: #f4f6fb;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+/* Navbar */
+
+.navbar {
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+/* Logout button */
+
+.logout-btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+
+/* Title section */
+
+.page-title {
+  padding: 30px 50px 10px;
+}
+
+.page-title h2 {
+  margin-bottom: 4px;
+}
+
+.page-title p {
+  color: #6b7280;
+}
+
+
+/* Status text */
+
+.status {
+  padding: 30px 50px;
+  color: #6b7280;
+}
+
+.status.error {
+  color: #dc2626;
+}
+
+
+/* Grid layout */
+
+.grid {
+  padding: 20px 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+
+/* Card */
+
+.card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+
+/* Card header */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+
+/* Price badge */
+
+.price {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+
+/* Location */
+
+.location {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+
+/* Book button */
+
+.book-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.book-btn:hover {
+  background: #1d4ed8;
+}

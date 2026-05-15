@@ -1,0 +1,99 @@
+<div class="page">
+
+  <!-- Navbar -->
+
+  <header class="navbar">
+
+    <div class="logo">
+      ⚽ TurfBook
+    </div>
+
+    <button
+      class="logout-btn"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+
+  </header>
+
+
+  <!-- Page Title -->
+
+  <section class="page-title">
+
+    <h2>Available Turfs</h2>
+
+    <p>Select your preferred turf and start booking</p>
+
+  </section>
+
+
+  <!-- Loading State -->
+
+  <div
+    class="status"
+    *ngIf="loading"
+  >
+    Loading turfs...
+  </div>
+
+
+  <!-- Error State -->
+
+  <div
+    class="status error"
+    *ngIf="errorMessage"
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <!-- Turf Grid -->
+
+  <section
+    class="grid"
+    *ngIf="!loading && turfs.length > 0"
+  >
+
+    <div
+      class="card"
+      *ngFor="let turf of turfs"
+    >
+
+      <div class="card-header">
+
+        <h3>{{ turf.name }}</h3>
+
+        <span class="price">
+          ₹ {{ turf.pricePerHour }}
+        </span>
+
+      </div>
+
+      <p class="location">
+        📍 {{ turf.location }}
+      </p>
+
+      <button
+        class="book-btn"
+        (click)="bookTurf(turf.id)"
+      >
+        Book Now
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- Empty State -->
+
+  <div
+    class="status"
+    *ngIf="!loading && turfs.length === 0"
+  >
+    No turfs available yet.
+  </div>
+
+</div>

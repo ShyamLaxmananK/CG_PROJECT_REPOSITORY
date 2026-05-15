@@ -1,0 +1,101 @@
+<div class="login-wrapper">
+
+  <div class="login-card">
+
+    <div class="logo">⚽ TurfBook</div>
+
+    <h2>Sign in</h2>
+
+    <p class="subtitle">
+      Use your account to continue
+    </p>
+
+
+    <!-- Username -->
+
+    <div class="input-group">
+
+      <input
+        type="text"
+        [(ngModel)]="username"
+        placeholder=" "
+      />
+
+      <label>Username</label>
+
+    </div>
+
+
+    <!-- Password -->
+
+    <div class="input-group password-group">
+
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        [(ngModel)]="password"
+        placeholder=" "
+      />
+
+      <label>Password</label>
+
+      <span
+        class="toggle"
+        (click)="togglePassword()"
+      >
+        {{ showPassword ? 'Hide' : 'Show' }}
+      </span>
+
+    </div>
+
+
+    <!-- Error message -->
+
+    <div
+      class="error"
+      *ngIf="errorMessage"
+    >
+      {{ errorMessage }}
+    </div>
+
+
+    <!-- Login button -->
+
+    <button
+      class="login-btn"
+      (click)="login()"
+      [disabled]="loading"
+    >
+
+      <span class="btn-content">
+
+        <span *ngIf="!loading">
+          Login
+        </span>
+
+        <span
+          *ngIf="loading"
+          class="spinner"
+        ></span>
+
+      </span>
+
+    </button>
+
+
+    <!-- Register section -->
+
+    <div class="register-section">
+
+      <span>
+        New user?
+      </span>
+
+      <a routerLink="/register">
+        Register here
+      </a>
+
+    </div>
+
+  </div>
+
+</div>

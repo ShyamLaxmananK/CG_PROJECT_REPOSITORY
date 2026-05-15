@@ -1,0 +1,45 @@
+<div class="register-wrapper">
+
+  <div class="register-card">
+
+    <h2>Create Account</h2>
+
+    <input
+      type="text"
+      placeholder="Username"
+      [(ngModel)]="username"
+    />
+
+    <input
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password"
+    />
+
+    <select [(ngModel)]="role">
+
+      <option value="ROLE_CUSTOMER">
+        Customer
+      </option>
+
+      <option value="ROLE_OWNER">
+        Turf Owner
+      </option>
+
+    </select>
+
+    <button (click)="register()">
+      Register
+    </button>
+
+    <p class="success" *ngIf="successMessage">
+      {{ successMessage }}
+    </p>
+
+    <p class="error" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+
+  </div>
+
+</div>

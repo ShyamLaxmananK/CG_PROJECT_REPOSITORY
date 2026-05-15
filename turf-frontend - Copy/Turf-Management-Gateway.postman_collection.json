@@ -1,0 +1,218 @@
+{
+  "info": {
+    "_postman_id": "9f7c1f6a-5d53-4f51-a7f9-groundflow-demo",
+    "name": "Turf Management Gateway",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "customerToken",
+      "value": ""
+    },
+    {
+      "key": "ownerToken",
+      "value": ""
+    },
+    {
+      "key": "adminToken",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth - Register Customer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"customer_demo\",\n  \"password\": \"pass123\",\n  \"role\": \"ROLE_CUSTOMER\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/auth/register",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"customer_demo\",\n  \"password\": \"pass123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Turfs - Get All",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{customerToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/turfs",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "turfs"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Slots - Get By Turf",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{customerToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/slots/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "slots",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Bookings - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{customerToken}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"slotTime\": \"06:00 - 07:00\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/bookings/create/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "bookings",
+            "create",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Bookings - My Bookings",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{customerToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/bookings/my",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "bookings",
+            "my"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Owner - My Turfs",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{ownerToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/turfs/owner",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "turfs",
+            "owner"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Admin - Customers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/customers",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "customers"
+          ]
+        }
+      }
+    }
+  ]
+}

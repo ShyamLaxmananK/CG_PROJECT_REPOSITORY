@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Booking Confirmed</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f3ec;
+        --card: rgba(255, 255, 255, 0.9);
+        --text: #13231c;
+        --muted: #52625a;
+        --brand: #13795b;
+        --brand-dark: #0d5d45;
+        --line: rgba(19, 35, 28, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(19, 121, 91, 0.14), transparent 32%),
+          linear-gradient(180deg, #faf8f1 0%, var(--bg) 100%);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .card {
+        width: min(720px, 100%);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 32px;
+        box-shadow: 0 24px 80px rgba(19, 35, 28, 0.08);
+      }
+
+      .tag {
+        display: inline-flex;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(19, 121, 91, 0.12);
+        color: var(--brand-dark);
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .success-banner {
+        margin: 18px 0 0;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(19, 121, 91, 0.12);
+        color: var(--brand-dark);
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 16px 0 12px;
+        font-size: clamp(30px, 5vw, 44px);
+      }
+
+      p {
+        margin: 0 0 14px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .booking-id {
+        margin: 24px 0;
+        padding: 18px 20px;
+        border-radius: 20px;
+        background: rgba(19, 121, 91, 0.08);
+      }
+
+      .booking-id span {
+        display: block;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .booking-id strong {
+        display: block;
+        margin-top: 8px;
+        font-size: clamp(28px, 5vw, 42px);
+        color: var(--brand-dark);
+      }
+
+      .details {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 26px;
+      }
+
+      .detail-row {
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid var(--line);
+      }
+
+      .detail-row strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .btn-primary {
+        background: var(--brand);
+        color: #fff;
+      }
+
+      .btn-secondary {
+        background: #fff;
+        color: var(--text);
+        border: 1px solid var(--line);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="tag">Booking Successful</div>
+      <div class="success-banner" id="successMessage">
+        Booking successful. Your turf has been reserved.
+      </div>
+      <h1>Booking successful</h1>
+      <p>Kindly show booking ID and pay directly at location.</p>
+
+      <section class="booking-id">
+        <span>Booking ID</span>
+        <strong id="bookingId">--</strong>
+      </section>
+
+      <section class="details" id="bookingDetails">
+        <div class="detail-row">
+          <strong>Turf</strong>
+          <span id="turfName">Your selected turf</span>
+        </div>
+        <div class="detail-row">
+          <strong>Timing</strong>
+          <span id="slotTime">Selected slot</span>
+        </div>
+        <div class="detail-row">
+          <strong>Status</strong>
+          <span id="status">CREATED</span>
+        </div>
+      </section>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="/customer/bookings">View my bookings</a>
+        <a class="btn btn-secondary" href="/customer">Back to dashboard</a>
+      </div>
+    </main>
+
+    <script>
+      const stored = sessionStorage.getItem('turf.lastBooking');
+      const booking = stored ? JSON.parse(stored) : null;
+      const params = new URLSearchParams(window.location.search);
+      const bookingId = booking?.id || params.get('bookingId') || '--';
+      const successMessage = document.getElementById('successMessage');
+
+      document.getElementById('bookingId').textContent = String(bookingId);
+      document.getElementById('turfName').textContent =
+        booking?.turfName || `Booking #${bookingId}`;
+      document.getElementById('slotTime').textContent =
+        booking?.slotTime || 'Timing selected in localhost demo';
+      document.getElementById('status').textContent =
+        booking?.status || 'CREATED';
+
+      if (successMessage && params.get('success') === '1') {
+        successMessage.textContent =
+          `Booking successful. Your booking ID is ${bookingId}.`;
+      }
+    </script>
+  </body>
+</html>

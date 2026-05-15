@@ -1,0 +1,77 @@
+.dashboard {
+
+  min-height: 100vh;
+
+  background: #f4f6fb;
+
+  font-family: "Segoe UI", sans-serif;
+
+}
+
+.navbar {
+
+  height: 65px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 40px;
+
+  background: white;
+
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+
+}
+
+.logo {
+
+  font-size: 22px;
+
+  font-weight: 600;
+
+}
+
+.logout-btn {
+
+  padding: 8px 18px;
+
+  border-radius: 8px;
+
+  border: none;
+
+  background: #ef4444;
+
+  color: white;
+
+  cursor: pointer;
+
+}
+
+.content {
+
+  padding: 40px;
+
+}
+
+.primary-btn {
+
+  margin-top: 20px;
+
+  padding: 12px 22px;
+
+  border-radius: 8px;
+
+  border: none;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+}

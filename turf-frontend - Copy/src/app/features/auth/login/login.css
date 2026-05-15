@@ -1,0 +1,323 @@
+/* Page background */
+
+.login-wrapper {
+
+  height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: #83aceb;
+
+  font-family: "Segoe UI", Roboto, sans-serif;
+
+}
+
+
+/* Card */
+
+.login-card {
+
+  width: 360px;
+
+  padding: 42px;
+
+  border-radius: 14px;
+
+  background: rgb(255, 255, 255);
+
+  border: 1px solid #236ccc;
+
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+
+  text-align: center;
+
+}
+
+
+/* Logo */
+
+.logo {
+
+  font-size: 26px;
+
+  font-weight: 600;
+
+  margin-bottom: 6px;
+
+}
+
+
+/* Subtitle */
+
+.subtitle {
+
+  font-size: 14px;
+
+  color: #6b7280;
+
+  margin-bottom: 28px;
+
+}
+
+
+/* Input container */
+
+.input-group {
+
+  position: relative;
+
+  margin-bottom: 20px;
+
+}
+
+
+/* Inputs */
+
+input {
+
+  width: 100%;
+
+  padding: 14px;
+
+  border-radius: 8px;
+
+  border: 1px solid #d1d5db;
+
+  font-size: 14px;
+
+  background: white;
+
+  transition: border 0.2s ease;
+
+}
+
+
+/* Floating labels */
+
+.input-group label {
+
+  position: absolute;
+
+  left: 14px;
+
+  top: 14px;
+
+  font-size: 13px;
+
+  color: #9ca3af;
+
+  background: white;
+
+  padding: 0 4px;
+
+  transition: 0.2s ease;
+
+}
+
+
+/* Label animation */
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+
+  top: -8px;
+
+  font-size: 11px;
+
+  color: #2563eb;
+
+}
+
+
+/* Focus effect */
+
+input:focus {
+
+  outline: none;
+
+  border-color: #2563eb;
+
+}
+
+
+/* Password toggle */
+
+.password-group {
+
+  position: relative;
+
+}
+
+.toggle {
+
+  position: absolute;
+
+  right: 12px;
+
+  top: 14px;
+
+  font-size: 12px;
+
+  color: #2563eb;
+
+  cursor: pointer;
+
+}
+
+
+/* Error message */
+
+.error {
+
+  font-size: 13px;
+
+  color: #dc2626;
+
+  margin-bottom: 14px;
+
+}
+
+
+/* Login button */
+
+.login-btn {
+
+  width: 100%;
+
+  height: 48px;
+
+  border-radius: 8px;
+
+  border: 1px solid #d1d5db;
+
+  background: white;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  transition: 0.2s ease;
+
+}
+
+
+/* Hover */
+
+.login-btn:hover {
+
+  background: #f9fafb;
+
+}
+
+
+/* Disabled */
+
+.login-btn:disabled {
+
+  background: #f3f4f6;
+
+  cursor: not-allowed;
+
+}
+
+
+/* Button content alignment */
+
+.btn-content {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+.register-section {
+
+  margin-top: 18px;
+
+  font-size: 14px;
+
+  color: #6b7280;
+
+  text-align: center;
+
+}
+
+.register-section a {
+
+  margin-left: 6px;
+
+  color: #2563eb;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+
+}
+
+.register-section a:hover {
+
+  text-decoration: underline;
+
+}
+/* Spinner */
+
+.spinner {
+
+  width: 18px;
+
+  height: 18px;
+
+  border: 2px solid #2563eb;
+
+  border-top: 2px solid transparent;
+
+  border-radius: 50%;
+
+  animation: spin 0.6s linear infinite;
+
+}
+
+
+@keyframes spin {
+
+  to {
+
+    transform: rotate(360deg);
+
+  }
+
+}
+
+
+/* Mobile responsive */
+
+@media (max-width: 420px) {
+
+  .login-card {
+
+    width: 90%;
+
+    padding: 28px;
+
+  }
+
+}

@@ -1,0 +1,24 @@
+<div class="page">
+
+  <h2>Select Time Slot</h2>
+
+  <div class="slots">
+
+    <button
+      *ngFor="let slot of slots"
+      (click)="selectSlot(slot)"
+      [class.active]="selectedSlot === slot"
+    >
+      {{ slot }}
+    </button>
+
+  </div>
+
+  <button
+    class="confirm-btn"
+    (click)="confirmBooking()"
+  >
+    Confirm Booking
+  </button>
+
+</div>
